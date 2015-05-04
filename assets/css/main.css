@@ -1,7 +1,7 @@
 body {
 	background:white url( ../images/dataculture.png) repeat-y;
 	background-size: contain;
-	font-family: 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family: 'CronosPro-Regular', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 /* Header */
@@ -82,12 +82,22 @@ img.pull-left { margin-right: 10px; }
 #social .wrapper { width:340px; margin:0 auto; }
 
 /* Main content block */
-.maincontent { }
+.maincontent {
+	background-color: rgba(255,255,255,.8);
+}
 
 /* Sidebars */
-.sidebar { padding-top:36px; padding-bottom:30px; }
-.sidebar .widget { margin-bottom:20px; }
-.sidebar h1, .sidebar .h1, .sidebar h2, .sidebar .h2, .sidebar h3, .sidebar .h3 { margin-top:20px; } 
+.sidebar {
+	padding-top: 36px;
+	padding-bottom:30px;
+}
+.sidebar .widget {
+	margin-bottom: 20px;
+	background-color: rgba(255,255,255,.8);
+}
+.sidebar h1, .sidebar .h1, .sidebar h2, .sidebar .h2, .sidebar h3, .sidebar .h3 {
+	margin-top: 20px;
+} 
 
 /* Footer */
 .footer1 { background: #232323; padding: 30px 0 0 0; font-size: 12px; color: #999; }

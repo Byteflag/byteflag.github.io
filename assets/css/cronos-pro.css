@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'CronosPro-Regular';
+  src: url('../fonts/CronosPro-Regular.eot');
+  src: url('../fonts/CronosPro-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-Regular.woff2') format('woff2'),
+       url('../fonts/CronosPro-Regular.woff') format('woff'),
+       url('../fonts/CronosPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
