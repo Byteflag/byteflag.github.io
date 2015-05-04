@@ -37,11 +37,6 @@ body {
 }
 
 #head .btn { margin-bottom:10px; }
-#head .btn-default { text-shadow: none; background:transparent; color:rgba(0,0,0,.5); -webkit-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); -moz-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); background: transparent; }
-#head .btn-default:hover,
-#head .btn-default:focus { color:rgba(0,0,0,.8); -webkit-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); -moz-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); background: transparent; }
-#head .btn-default:active, 
-#head .btn-default.active { color:black; -webkit-box-shadow:inset 0px 0px 0px 3px #fff; -moz-box-shadow:inset 0px 0px 0px 3px #fff; box-shadow:inset 0px 0px 0px 3px #fff; background: transparent; }
 
 @media (max-width: 767px) {
 	#head { margin-bottom: 3em; }
