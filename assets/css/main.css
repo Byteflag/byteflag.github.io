@@ -43,16 +43,9 @@ body {
 #head .btn-default:active, 
 #head .btn-default.active { color:black; -webkit-box-shadow:inset 0px 0px 0px 3px #fff; -moz-box-shadow:inset 0px 0px 0px 3px #fff; box-shadow:inset 0px 0px 0px 3px #fff; background: transparent; }
 
-@media (max-width: 767px) {
-	#head { min-height:420px; padding-top:160px; }
-	#head .lead { font-size: 34px; }
-}
-
-
 /* Autohide navbar */
 .slideUp { top:-100px; }
 .headroom { -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; -o-transition: all 0.4s ease-out; transition: all 0.4s ease-out; }
-
 
 /* Highlights (in jumbotron in most cases) */
 .highlight { margin-top: 1em; padding-top: 1em; border-radius: 6px; }
@@ -60,7 +53,6 @@ body {
 .h-caption i { display:block; font-size: 54px; color:#382526; margin-bottom:36px; }
 .h-caption h4 { color:#382526; font-size: 16px; font-weight: bold; margin-bottom:20px; }
 .h-body { }
-
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
