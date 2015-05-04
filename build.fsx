@@ -7,6 +7,7 @@ let pages = [
     Page ("index.html", "Home", [])
     Page ("panconnect.html", "PanConnect", [  Page ("panconnect_mobile.html", "PanConnect Mobile", [])
                                               Page ("panconnect_selfservice.html", "PanConnect Self-Service", []) ])
+    Page ("news.html", "News", [])
     Page ("consulting.html", "Consulting", [])
     Page ("hiring.html", "We're hiring", [])
     Page ("company.html", "Company", [])
