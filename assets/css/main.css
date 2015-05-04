@@ -1,17 +1,18 @@
 body {
 	background:white url( ../images/dataculture.png) repeat-y;
 	background-size: contain;
-	font-family: 'CronosPro-Regular', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family: 'CronosPro-Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
 }
 
 /* Header */
 #head {
+	font-family: 'CronosPro-Heading', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	background-color: rgba(255,255,255,.8);
 	text-align: center;
 	margin-top: 15em;
 	margin-bottom: 15em;
 	color: black;
-	font-weight: 400;
 }
 
 #head.secondary {
@@ -20,7 +21,8 @@ body {
 }
 
 #head .lead {
-	font-size: 44px;
+	font-weight: normal;
+	font-size: 32pt;
 	color: black;
 	line-height: 1em;
 	border-radius: 3px;
@@ -28,6 +30,8 @@ body {
 }
 
 #head .tagline {
+	font-weight: normal;
+	font-size: 12pt;
 	margin-bottom:25px;
 	color: rgba(0,0,0,.7);
 }
@@ -59,12 +63,20 @@ body {
 
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 { }
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'CronosPro-Heading', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 h1, .h1, h2, .h2, h3, .h3 { margin-top:30px; } 
-blockquote { font-style: italic; font-family: Georgia, serif; color:#999; margin:30px 0 30px; }
+blockquote {
+	font-family: 'CronosPro-Normal', Georgia, serif;
+	font-style: italic;
+	font-weight: normal;
+	color:#999;
+	margin:30px 0 30px;
+}
 label { color: #777; }
-.thin { font-weight:400; }
-.page-title { margin-top:20px; font-weight:300; }
+.thin { font-weight:lighter; }
+.page-title { margin-top:20px; font-weight:lighter; }
 .text-muted { color:#888; }
 .breadcrumb { background:none; padding:0; margin:30px 0 0px 0; }
 ul.list-spaces li{ margin-bottom:10px; }
@@ -100,7 +112,7 @@ img.pull-left { margin-right: 10px; }
 } 
 
 /* Footer */
-.footer1 { background: #232323; padding: 30px 0 0 0; font-size: 12px; color: #999; }
+.footer1 { background: #232323; padding: 30px 0 0 0; font-size: 12pt; color: #999; }
 .footer1 a { color: #ccc; }
 .footer1 a:hover {color: #fff; }
 .footer1 .widget { margin-bottom:30px; }		

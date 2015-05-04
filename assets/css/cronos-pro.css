@@ -1,10 +1,166 @@
 @font-face {
-  font-family: 'CronosPro-Regular';
-  src: url('../fonts/CronosPro-Regular.eot');
-  src: url('../fonts/CronosPro-Regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/CronosPro-Regular.woff2') format('woff2'),
-       url('../fonts/CronosPro-Regular.woff') format('woff'),
-       url('../fonts/CronosPro-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-LtDisp.eot');
+  src: url('../fonts/CronosPro-LtDisp.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-LtDisp.woff2') format('woff2'),
+       url('../fonts/CronosPro-LtDisp.woff') format('woff'),
+       url('../fonts/CronosPro-LtDisp.ttf') format('truetype');
+  font-weight: 300;
   font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-LtDispIt.eot');
+  src: url('../fonts/CronosPro-LtDispIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-LtDispIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-LtDispIt.woff') format('woff'),
+       url('../fonts/CronosPro-LtDispIt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-Disp.eot');
+  src: url('../fonts/CronosPro-Disp.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-Disp.woff2') format('woff2'),
+       url('../fonts/CronosPro-Disp.woff') format('woff'),
+       url('../fonts/CronosPro-Disp.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-DispIt.eot');
+  src: url('../fonts/CronosPro-DispIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-DispIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-DispIt.woff') format('woff'),
+       url('../fonts/CronosPro-DispIt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-SemiboldDisp.eot');
+  src: url('../fonts/CronosPro-SemiboldDisp.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-SemiboldDisp.woff2') format('woff2'),
+       url('../fonts/CronosPro-SemiboldDisp.woff') format('woff'),
+       url('../fonts/CronosPro-SemiboldDisp.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-SemiboldDispIt.eot');
+  src: url('../fonts/CronosPro-SemiboldDispIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-SemiboldDispIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-SemiboldDispIt.woff') format('woff'),
+       url('../fonts/CronosPro-SemiboldDispIt.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-BoldDisp.eot');
+  src: url('../fonts/CronosPro-BoldDisp.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-BoldDisp.woff2') format('woff2'),
+       url('../fonts/CronosPro-BoldDisp.woff') format('woff'),
+       url('../fonts/CronosPro-BoldDisp.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Normal';
+  src: url('../fonts/CronosPro-BoldDispIt.eot');
+  src: url('../fonts/CronosPro-BoldDispIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-BoldDispIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-BoldDispIt.woff') format('woff'),
+       url('../fonts/CronosPro-BoldDispIt.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+
+
+
+
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-LtSubh.eot');
+  src: url('../fonts/CronosPro-LtSubh.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-LtSubh.woff2') format('woff2'),
+       url('../fonts/CronosPro-LtSubh.woff') format('woff'),
+       url('../fonts/CronosPro-LtSubh.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-LtSubhIt.eot');
+  src: url('../fonts/CronosPro-LtSubhIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-LtSubhIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-LtSubhIt.woff') format('woff'),
+       url('../fonts/CronosPro-LtSubhIt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-Subh.eot');
+  src: url('../fonts/CronosPro-Subh.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-Subh.woff2') format('woff2'),
+       url('../fonts/CronosPro-Subh.woff') format('woff'),
+       url('../fonts/CronosPro-Subh.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-SubhIt.eot');
+  src: url('../fonts/CronosPro-SubhIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-SubhIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-SubhIt.woff') format('woff'),
+       url('../fonts/CronosPro-SubhIt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-SemiboldSubh.eot');
+  src: url('../fonts/CronosPro-SemiboldSubh.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-SemiboldSubh.woff2') format('woff2'),
+       url('../fonts/CronosPro-SemiboldSubh.woff') format('woff'),
+       url('../fonts/CronosPro-SemiboldSubh.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-SemiboldSubhIt.eot');
+  src: url('../fonts/CronosPro-SemiboldSubhIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-SemiboldSubhIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-SemiboldSubhIt.woff') format('woff'),
+       url('../fonts/CronosPro-SemiboldSubhIt.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-BoldSubh.eot');
+  src: url('../fonts/CronosPro-BoldSubh.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-BoldSubh.woff2') format('woff2'),
+       url('../fonts/CronosPro-BoldSubh.woff') format('woff'),
+       url('../fonts/CronosPro-BoldSubh.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CronosPro-Heading';
+  src: url('../fonts/CronosPro-BoldSubhIt.eot');
+  src: url('../fonts/CronosPro-BoldSubhIt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CronosPro-BoldSubhIt.woff2') format('woff2'),
+       url('../fonts/CronosPro-BoldSubhIt.woff') format('woff'),
+       url('../fonts/CronosPro-BoldSubhIt.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
 }
