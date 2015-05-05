@@ -13,6 +13,14 @@ let pages = [
     Page ("company.html", "Company", [])
 ]
 
+let rec generatePrefetchLinks () =
+    pages
+    |> Seq.map (
+        function
+        | Page (fileName, _, _) ->
+            "<link rel=\"prefetch\" href=\"" + fileName + "\">")
+    |> String.concat ""
+
 let generateNavBarContent topLevelPage =
     pages
     |> Seq.map (
@@ -37,6 +45,7 @@ while true do
         | Page (fileName, _, pages) as page ->
             let template = File.ReadAllText(contentFileName "template.html")
             let pageContent = template
+            let pageContent = pageContent.Replace("$PREFETCHLINKS$", generatePrefetchLinks ())
             let pageContent = pageContent.Replace("$NAVBARCONTENT$", generateNavBarContent topLevelPage)
             let pageContent = pageContent.Replace("$BODYCONTENT$", match read page with v when v <> "" -> v | _ -> "Nothing to display on this page yet. Come back later!")
             File.WriteAllText(outputFileName fileName, pageContent)
