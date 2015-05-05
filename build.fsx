@@ -13,6 +13,14 @@ let pages = [
     Page ("company.html", "Company", [])
 ]
 
+let generateCssBundle () =
+    let path name = Path.Combine(__SOURCE_DIRECTORY__, "assets", "css", name)
+    let content =
+        [ "cronos-pro.css"; "bootstrap.min.css"; "font-awesome.min.css"; "bootstrap-theme.css"; "main.css" ]
+        |> Seq.map (fun name -> File.ReadAllText(path name))
+        |> String.concat "\n"
+    File.WriteAllText(path "concat.css", content)
+
 let generatePrefetchLinks topLevelPage =
     pages
     |> Seq.choose (
@@ -37,9 +45,16 @@ let contentFolderPath = Path.Combine(baseFolderPath, "content")
 let contentFileName path = Path.Combine(contentFolderPath, path)
 let outputFileName path = Path.Combine(baseFolderPath, path)
 
-let read page =
-    match page with Page (fileName, _, _) when fileName <> "" -> File.ReadAllText(contentFileName fileName) | _ -> ""
+let read page = match page with Page (fileName, _, _) when fileName <> "" -> File.ReadAllText(contentFileName fileName) | _ -> ""
 
+//
+// Script entry point.
+//
+
+// Generate CSS concat'd bundle.
+generateCssBundle ()
+
+// Generate pages from template.
 while true do
     let rec processPage topLevelPage =
         function
