@@ -51,11 +51,11 @@ let read page = match page with Page (fileName, _, _) when fileName <> "" -> Fil
 // Script entry point.
 //
 
-// Generate CSS concat'd bundle.
-generateCssBundle ()
-
-// Generate pages from template.
 while true do
+    // Generate CSS concat'd bundle.
+    generateCssBundle ()
+
+    // Generate pages from template.
     let rec processPage topLevelPage =
         function
         | Page (fileName, _, pages) as page ->
