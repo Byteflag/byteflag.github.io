@@ -17,13 +17,30 @@ let pages = [
     page ["company"; "index.html"] "Company" []
 ]
 
-let generateHtmlPath =
-    function
-    | Page (path, _, _) ->
-        if Seq.length path > 1 then
-            "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
-        else
-            "/"
+// Use this for base path when debugging the site on local file system.
+// Otherwise, ensure it is blank for production build.
+let debugBasePath = "" // "file:///" + __SOURCE_DIRECTORY__
+
+let generateRelativePath page =
+    if debugBasePath <> ""
+    then debugBasePath
+    else
+        match page with
+        | Page (path, _, _) when Seq.length path > 1 ->
+            (Seq.init ((Seq.length path) - 1) (fun _ -> "..") |> String.concat "/") + "/"
+        | _ ->
+            ""
+
+let generateHtmlPath page =
+    if debugBasePath <> ""
+    then debugBasePath + "/" + (match page with Page (path, _, _) -> path |> String.concat "/")
+    else
+        match page with
+        | Page (path, _, _) ->
+            if Seq.length path > 1 then
+                "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
+            else
+                "/"
 
 let generateCssBundle () =
     let path name = Path.Combine(__SOURCE_DIRECTORY__, "assets", "css", name)
@@ -51,11 +68,6 @@ let generateNavBarContent topLevelPage =
         | Page (_, displayName, _) as page ->
             "<li><a href=\"" + generateHtmlPath page + "\">" + displayName + """</a></li>""")
     |> String.concat ""
-
-let generateRelativePath =
-    function
-    | Page (path, _, _) ->
-        Seq.init ((Seq.length path) - 1) (fun _ -> "..") |> String.concat "/"
 
 let baseFolderPath = __SOURCE_DIRECTORY__
 let contentFolderPath = Path.Combine(baseFolderPath, "_content")
