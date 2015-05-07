@@ -19,7 +19,7 @@ let pages = [
 
 // Use this for base path when debugging the site on local file system.
 // Otherwise, ensure it is blank for production build.
-// let debugBasePath = "file:///" + __SOURCE_DIRECTORY__
+//let debugBasePath = "file:///" + __SOURCE_DIRECTORY__
 let debugBasePath = ""
 
 let generateRelativePath page =
