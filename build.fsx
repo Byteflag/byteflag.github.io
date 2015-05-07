@@ -49,8 +49,13 @@ let generateNavBarContent topLevelPage =
             "<li><a href=\"" + generateHtmlPath page + "\">" + displayName + """</a></li>""")
     |> String.concat ""
 
+let generateRelativePath =
+    function
+    | Page (path, _, _) ->
+        Seq.init ((Seq.length path) - 1) (fun _ -> "..") |> String.concat "/"
+
 let baseFolderPath = __SOURCE_DIRECTORY__
-let contentFolderPath = Path.Combine(baseFolderPath, "content")
+let contentFolderPath = Path.Combine(baseFolderPath, "_content")
 let contentFileName path = Path.Combine(Array.append [|contentFolderPath|] (Array.ofSeq path))
 let outputFileName path =
     match Seq.length path with
@@ -80,6 +85,7 @@ while true do
         | Page (path, _, pages) as page ->
             let template = File.ReadAllText(contentFileName ["_template.html"])
             let pageContent = template
+            let pageContent = pageContent.Replace("$RELATIVEPATH$", generateRelativePath page)
             let pageContent = pageContent.Replace("$PREFETCHLINKS$", generatePrefetchLinks topLevelPage)
             let pageContent = pageContent.Replace("$NAVBARCONTENT$", generateNavBarContent topLevelPage)
             let pageContent = pageContent.Replace("$BODYCONTENT$", match read page with v when v <> "" -> v | _ -> "Nothing to display on this page yet. Come back later!")
