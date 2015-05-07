@@ -20,7 +20,7 @@ let pages = [
 let generateHtmlPath =
     function
     | Page (path, _, _) ->
-        (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
+        "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
 
 let generateCssBundle () =
     let path name = Path.Combine(__SOURCE_DIRECTORY__, "assets", "css", name)
