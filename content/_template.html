@@ -11,7 +11,7 @@
 	
 	<link rel="stylesheet" href="assets/css/concat.css">
 
-	<link rel="prefetch" href="index.html"><link rel="prefetch" href="panconnect.html"><link rel="prefetch" href="news.html"><link rel="prefetch" href="hiring.html"><link rel="prefetch" href="company.html">
+	$PREFETCHLINKS$
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -31,66 +31,19 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="/">
 					<img src="assets/images/logo.png" alt="Byteflag" width="200">
 				</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li><a href="index.html">Home</a></li><li><a href="panconnect.html">PanConnect</a></li><li><a href="news.html">News</a></li><li class="active"><a href="consulting.html">Consulting</a></li><li><a href="hiring.html">We're hiring</a></li><li><a href="company.html">Company</a></li>
+					$NAVBARCONTENT$
 				</ul>
 			</div>
 		</div>
 	</div> 
 
-	<header id="head" class="secondary">
-	<div style="background-color: rgba(239,77,70,.4);">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1 class="lead">
-						Consult our experienced <strong>F# .NET</strong> and <strong>Xamarin</strong> engineers</strong>
-					</h1>
-					<p class="tagline">
-						Our team are highly active in the F# and Xamarin software development communities. They are contributors to numerous open source projects.<br>
-						Aside from our own products, they've provided consulting to automotive dealerships and financial technology start-ups.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
-
-<div class="container">
-	<div class="row">
-		<article class="col-md-12 maincontent">
-			<header class="page-header">
-				<h1 class="page-title">
-					Consulting
-				</h1>
-			</header>
-
-			<p>
-				With a technical team spanning over <strong>40 years of industry experience</strong>, we often take on special consulting projects.
-			</p>
-			<p>
-				Our areas of expertise are as follows:
-			</p>
-			<ul>
-				<li>F# and C# .NET.</li>
-				<li>Distributed eventually consistent systems, including cloud-based environments.</li>
-				<li>Distributed databases such as Riak, Azure Table Storage, Voldemort.</li>
-				<li>Mobile tablet and smartphone applications for Android, iOS and Windows Phone.</li>
-				<li>Cross-platform development with Mono, Xamarin and Xamarin.Forms.</li>
-				<li>Event sourcing and other “temporal” data storage based architectures.</li>
-				<li>SMS (text message) technology including bespoke cloud-scale ESME SMPP stacks built for high performance, scalability and reliability.</li>
-			</ul>
-			<p style="font-size: 16pt;">
-				So if you need to deliver something a little bit special, get in touch with us!
-			</p>
-		</article>
-	</div>
-</div>
+	$BODYCONTENT$
 	
 	<footer id="footer" class="top-space">
 		<div class="footer1">

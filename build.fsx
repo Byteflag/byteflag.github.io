@@ -1,17 +1,26 @@
 open System
 open System.IO
 
-type Page = Page of FileName : string * DisplayName : string * Pages : Page list
+type Page = Page of Path : string seq * DisplayName : string * Pages : Page list
+
+let page path displayName pages = Page (path, displayName, pages)
 
 let pages = [
-    Page ("index.html", "Home", [])
-    Page ("panconnect.html", "PanConnect", [  Page ("panconnect_mobile.html", "PanConnect Mobile", [])
-                                              Page ("panconnect_selfservice.html", "PanConnect Self-Service", []) ])
-    Page ("news.html", "News", [])
-    Page ("consulting.html", "Consulting", [])
-    Page ("hiring.html", "We're hiring", [])
-    Page ("company.html", "Company", [])
+    page ["index.html"] "Home" []
+    page ["panconnect"; "index.html"] "PanConnect" [
+        page ["panconnect"; "mobile-working"; "index.html"] "PanConnect Mobile" []
+        page ["panconnect"; "self-service"; "index.html"] "PanConnect Self-Service" []
+    ]
+    page ["news"; "index.html"] "News" []
+    page ["consulting"; "index.html"] "Consulting" []
+    page ["hiring"; "index.html"] "We're hiring" []
+    page ["company"; "index.html"] "Company" []
 ]
+
+let generateHtmlPath =
+    function
+    | Page (path, _, _) ->
+        path |> Seq.map (fun v -> v.Replace(".html", "")) |> String.concat "/"
 
 let generateCssBundle () =
     let path name = Path.Combine(__SOURCE_DIRECTORY__, "assets", "css", name)
@@ -25,8 +34,8 @@ let generatePrefetchLinks topLevelPage =
     pages
     |> Seq.choose (
         function
-        | Page (fileName, _, _) as page when topLevelPage <> page ->
-            Some ("<link rel=\"prefetch\" href=\"" + fileName + "\">")
+        | Page _ as page when topLevelPage <> page ->
+            Some ("<link rel=\"prefetch\" href=\"" + generateHtmlPath page + "\">")
         | _ -> None)
     |> String.concat ""
 
@@ -34,18 +43,28 @@ let generateNavBarContent topLevelPage =
     pages
     |> Seq.map (
         function
-        | Page (fileName, displayName, _) as page when topLevelPage = page ->
-            "<li class=\"active\"><a href=\"" + fileName + "\">" + displayName + """</a></li>"""
-        | Page (fileName, displayName, _) ->
-            "<li><a href=\"" + fileName + "\">" + displayName + """</a></li>""")
+        | Page (_, displayName, _) as page when topLevelPage = page ->
+            "<li class=\"active\"><a href=\"" + generateHtmlPath page + "\">" + displayName + """</a></li>"""
+        | Page (_, displayName, _) as page ->
+            "<li><a href=\"" + generateHtmlPath page + "\">" + displayName + """</a></li>""")
     |> String.concat ""
 
 let baseFolderPath = __SOURCE_DIRECTORY__
 let contentFolderPath = Path.Combine(baseFolderPath, "content")
-let contentFileName path = Path.Combine(contentFolderPath, path)
-let outputFileName path = Path.Combine(baseFolderPath, path)
+let contentFileName path = Path.Combine(Array.append [|contentFolderPath|] (Array.ofSeq path))
+let outputFileName path =
+    match Seq.length path with
+    | 0 -> baseFolderPath
+    | 1 -> Path.Combine(baseFolderPath, Seq.head path)
+    | v ->
+        Directory.CreateDirectory(Path.Combine(Array.append [|baseFolderPath|] (path |> Seq.truncate (v - 1) |> Seq.toArray))) |> ignore
+        Path.Combine(Array.append [|baseFolderPath|] (Array.ofSeq path))
 
-let read page = match page with Page (fileName, _, _) when fileName <> "" -> File.ReadAllText(contentFileName fileName) | _ -> ""
+let read =
+    function
+    | Page (path, _, _) when path |> Seq.isEmpty |> not ->
+        File.ReadAllText(contentFileName path)
+    | _ -> ""
 
 //
 // Script entry point.
@@ -58,18 +77,18 @@ while true do
     // Generate pages from template.
     let rec processPage topLevelPage =
         function
-        | Page (fileName, _, pages) as page ->
-            let template = File.ReadAllText(contentFileName "template.html")
+        | Page (path, _, pages) as page ->
+            let template = File.ReadAllText(contentFileName ["_template.html"])
             let pageContent = template
             let pageContent = pageContent.Replace("$PREFETCHLINKS$", generatePrefetchLinks topLevelPage)
             let pageContent = pageContent.Replace("$NAVBARCONTENT$", generateNavBarContent topLevelPage)
             let pageContent = pageContent.Replace("$BODYCONTENT$", match read page with v when v <> "" -> v | _ -> "Nothing to display on this page yet. Come back later!")
-            File.WriteAllText(outputFileName fileName, pageContent)
+            File.WriteAllText(outputFileName path, pageContent)
 
-            // now recurse into the nested pages
+            // Now recurse into the nested pages
             pages |> Seq.iter (processPage topLevelPage)
 
-            // trace
+            // Trace
             printfn "%A" page
 
     pages |> Seq.iter (fun page -> processPage page page)
