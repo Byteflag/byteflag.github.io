@@ -289,9 +289,11 @@ body {
 	font-size: 14pt;
 }
 
-@media screen and (min-width:768px) {
-	.image-flate { transition: all .2s ease-in-out; }
-	.image-flate:hover { transform: scale(1.5); }
+.image-flate { transition: all .15s ease-in-out; }
+.image-flate:hover { transform: scale(1.5); position: relative; }
+
+@media screen and (max-width:768px) {
+	.image-flate:hover { transform: scale(2.5); }
 }
 
 /* Header */
