@@ -6,8 +6,10 @@ body {
 	font-size: 14pt;
 }
 
-.image-flate { transition: all .2s ease-in-out; }
-.image-flate:hover { transform: scale(1.5); }
+@media screen and (min-width:768px) {
+	.image-flate { transition: all .2s ease-in-out; }
+	.image-flate:hover { transform: scale(1.5); }
+}
 
 /* Header */
 #head {
