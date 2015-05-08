@@ -7,7 +7,7 @@ body {
 }
 
 .image-flate { transition: all .15s ease-in-out; }
-.image-flate:hover { transform: scale(1.5); position: relative; }
+.image-flate:hover { transform: scale(1.5); position: relative; z-index: 9999; }
 
 @media screen and (max-width:768px) {
 	.image-flate:hover { transform: scale(2.5); }
