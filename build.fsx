@@ -40,7 +40,7 @@ let generateHtmlPath page =
         match page with
         | Page (path, _, _) ->
             if Seq.length path > 1 then
-                "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/")
+                "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
             else
                 "/"
 
