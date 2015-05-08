@@ -18,9 +18,10 @@ let pages = [
 ]
 
 // Use this for base path when debugging the site on local file system.
-// Otherwise, ensure it is blank for production build.
-//let debugBasePath = "file:///" + __SOURCE_DIRECTORY__
-let debugBasePath = ""
+let debugBasePath =
+    match fsi.CommandLineArgs |> Seq.tryFind (fun v -> v = "dev") with
+    | Some _ -> "file:///" + __SOURCE_DIRECTORY__
+    | None -> ""
 
 let generateRelativePath page =
     if debugBasePath <> ""
@@ -28,7 +29,7 @@ let generateRelativePath page =
     else
         match page with
         | Page (path, _, _) when Seq.length path > 1 ->
-            (Seq.init ((Seq.length path) - 1) (fun _ -> "..") |> String.concat "/") + "/"
+            (Seq.init ((Seq.length path) - 1) (fun _ -> "..") |> String.concat "/")
         | _ ->
             ""
 
@@ -39,7 +40,7 @@ let generateHtmlPath page =
         match page with
         | Page (path, _, _) ->
             if Seq.length path > 1 then
-                "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/") + "/"
+                "/" + (path |> Seq.truncate ((Seq.length path) - 1) |> String.concat "/")
             else
                 "/"
 
@@ -92,11 +93,13 @@ let read =
 //
 
 while true do
+    printfn "\r\nBuilding... (args: %A)\r\n" (fsi.CommandLineArgs |> Seq.skip 1 |> Seq.toList)
+
     // Generate CSS concat'd bundle.
     generateCssBundle ()
 
     // Generate pages from template.
-    let rec processPage topLevelPage =
+    let rec processPage depth topLevelPage =
         function
         | Page (path, _, pages) as page ->
             let template = File.ReadAllText(contentFileName ["_template.html"])
@@ -108,12 +111,12 @@ while true do
             File.WriteAllText(outputFileName path, pageContent)
 
             // Now recurse into the nested pages
-            pages |> Seq.iter (processPage topLevelPage)
+            pages |> Seq.iter (processPage (depth + 1) topLevelPage)
 
             // Trace
-            printfn "%A" page
+            printfn "%s%s" (new String(' ', depth * 2)) (path |> String.concat "/")
 
-    pages |> Seq.iter (fun page -> processPage page page)
+    pages |> Seq.iter (fun page -> processPage 0 page page)
 
+    printfn "\r\nDone; waiting...\r\n"
     System.Threading.Thread.Sleep 3000
-    printfn "\r\nLooping...\r\n"
