@@ -1,0 +1,126 @@
+<header id="head" class="secondary">
+	<div style="background-color: rgba(243,118,32,.4);">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="lead">
+						DataKit
+					</h1>
+					<p class="tagline">
+						Powerful toolset to extract, transform, load and update (ETL+U) data from business systems.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="container">
+	<div class="row">
+		<article class="col-md-12 maincontent">
+			<header class="page-header">
+				<h1 class="page-title">
+					What is DataKit?
+				</h1>
+			</header>
+			<p>
+				One of the biggest problems in the development of &ldquo;line of business&rdquo; software is the integration with data held by third party and back office systems already in use by the customer. DataKit will swiftly resolve this problem for you.
+			</p>
+			<p>
+				DataKit is a suite of very powerful data extraction, transformation, loading and update (ETL+U) tools. It is designed to serve as a convenient middle layer in your software stack to liberate you from needing to deal with the intricacies of foreign databases and file formats which are not central to solving the business domain problem of your software project. DataKit will <strong>save weeks and months of development costs</strong>, <strong>liberate your project from complex design decisions</strong>, and provide you with a <strong>competitive advantage</strong> in being able to support a wide variety of business systems and customers within your particular line of business.
+			</p>
+			<p>
+				The kit contains several modules for different use cases. Each module is a standalone command line executable which can be invoked from scheduled tasks, PowerShell scripts, batch scripts, other programs, etc. All modules can be setup with multiple configuration files and these can be added to your source control system so that even your ETL+U benefits from the best practices and convenience of revision &amp; change control.
+			</p>
+			<h2>Extract, transform, load (ETL) modules</h2>
+			<p>ETL modules are used to read data from one or more business systems and prepare it for use by your system.</p>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-12">
+					<dl class="dl-horizontal">
+						<dt>Databases</dt>
+						<dd>Many third party and back office systems use esoteric SQL databases from niche vendors, where the SQL dialect are badly supported or documented or are just frustrating to use, learn and support over time. This problem is magnified when all your customers use different systems. DataKit will connect to a configured list of ODBC DSNs and export tables/views to a consistent schema held in a SQLite database. SQLite is a lightweight database file format which, after creation, can be compressed and transferred to other servers like any other archive file. The key advantage at this point is that you only need to implement your database code against a single source: a SQLite database. SQLite is open source, MIT licensed, by far the most widely deployed database in the world and has extremely broad support amongst programming languages, frameworks and tooling.</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-12">
+					<dl class="dl-horizontal">
+						<dt>PDF Documents</dt>
+						<dd>Many business systems produce reports, statements or other forms of hard copy documents on a frequent schedule. These are then consumed by a variety of other systems, such as printers, electronic document stores (EDM) and customer relationship management (CRM) systems. DataKit's PDF spool processor acts as another sink for these PDF files. It can take large contiguously joined PDFs and use a special pattern matching algorithm to split them up into individual PDF documents by identifying each sequence of related pages.</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-12">
+					<dl class="dl-horizontal">
+						<dt>Excel Spreadsheets</dt>
+						<dd>The industry standard Excel spreadsheet. But still notoriously hard to process for automated ETL purposes. DataKit was designed from the outset with first class Excel support. It can export designated sheets, columns and cells, including formula cells, to a simple and easily processable JSON file which can be effortlessly handled by your system. JSON is like XML but more lightweight and is supported across all major programming languages, frameworks and tooling.</dd>
+					</dl>
+				</div>
+			</div>
+			<h2>Update modules</h2>
+			<p>These modules are used to allow your system to easily make data updates to the business systems. For example, inserting or updating the value of a database record, calling web services, writing files to a network share, and countless more scenarios.</p>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-12">
+					<dl class="dl-horizontal">
+						<dt>Databases</dt>
+						<dd>Make updates, large or small, to the database of a business system. These are typically SQL "UPDATE" and/or "INSERT" statements but DataKit does not place any limitations on the type of SQL scripts that can be executed. Variable parameters are bound into the SQL scripts before execution.</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-12">
+					<dl class="dl-horizontal">
+						<dt>Web Services</dt>
+						<dd>DataKit can invoke SOAP and REST web services and pass across variable parameters.</dd>
+					</dl>
+				</div>
+			</div>
+			<header class="page-header">
+				<h1 class="page-title">
+					MacroPilot
+				</h1>
+			</header>
+			<p>Many business systems are so old, poorly understood, badly implemented or restrictively licensed that extracting data or updating them with new data in an automated fashion can be almost impossible.</p>
+			<p>That is why, when all else fails, our MacroPilot tool can take the chair and act like a human. It can click on buttons, open screens &amp; sub-screens, view records and type with the keyboard; and it can do all this in a scripted automated fashion. Variable parameters can be passed across so that certain text field inputs can be varied for each invocation of the MacroPilot operation. Likewise, current values on the screen can be extracted and stored by MacroPilot for ETL purposes.</p>
+			<p>Configuring a MacroPilot script is a simple process that usually takes just a few minutes. But once configured, MacroPilot scripts can be executed thousands of times per day with high reliability and fault tolerance. Our consultants will be on hand to advise and help you configure, fine tune and maintain your MacroPilot scripts.</p>
+			<header class="page-header">
+				<h1 class="page-title">
+					Key features
+				</h1>
+			</header>
+			<div class="row widget">
+				<div class="col-xs-12 col-md-6">
+					<dl class="dl-horizontal">
+						<dt>Secure By Default</dt>
+						<dd>All modules in DataKit are designed with secure &amp; defensive programming principles. The modules are configured by default to use encrypted networking when transferring messages and data files.</dd>
+					</dl>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<dl class="dl-horizontal">
+						<dt>Fast &amp; Efficient</dt>
+						<dd>Our ETL modules use GZIP or LZMA data compression. In production environments we regularly see compression of a 300 megabyte dataset to just 10 megabytes.</dd>
+					</dl>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<dl class="dl-horizontal">
+						<dt>Cloud Support</dt>
+						<dd>DataKit was designed for use with cloud-hosted systems. We support Azure Blob Storage and Amazon AWS S3 for secure upload of bulk data files.</dd>
+					</dl>
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<dl class="dl-horizontal">
+						<dt>Reliable</dt>
+						<dd>DataKit uses a secure messaging service bus that can usually traverse through enterprise firewalls without needing to involve the I.T. department. It is SSL encrypted, highly reliable and fault tolerant.</dd>
+					</dl>
+				</div>
+			</div>
+			<header class="page-header">
+				<h1 class="page-title">
+					Flexible licensing
+				</h1>
+			</header>
+			<p>Get in touch with us today to discuss licensing our DataKit tools. We guarantee they will save you weeks, even months, of costly development time and give you a long lasting competitive advantage.</p>
+		</article>
+	</div>
+</div>

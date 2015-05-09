@@ -11,6 +11,7 @@ let pages = [
         page ["panconnect"; "mobile-working"; "index.html"] "PanConnect Mobile" []
         page ["panconnect"; "self-service"; "index.html"] "PanConnect Self-Service" []
     ]
+    page ["datakit"; "index.html"] "DataKit" []
     page ["news"; "index.html"] "News" []
     page ["consulting"; "index.html"] "Consulting" []
     page ["hiring"; "index.html"] "We're hiring" []
